@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "621922193910",
+    "firebase_url": "https://farmguide-7280f.firebaseio.com",
+    "project_id": "farmguide-7280f",
+    "storage_bucket": "farmguide-7280f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621922193910:android:73947ee0f5f2dbd5",
+        "android_client_info": {
+          "package_name": "com.example.pankaj.farmguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621922193910-ftnlc9g3nabaaqoiufr0r2tbpm5ffspa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pankaj.farmguide",
+            "certificate_hash": "60b383f5d8eaf2cc4d7c841fa92221726216848b"
+          }
+        },
+        {
+          "client_id": "621922193910-39auucfc576ppi9lup6sv0r0np2i9vig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB32rzaeO96dwKbrb6swvStr94zpbVKMqg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621922193910-39auucfc576ppi9lup6sv0r0np2i9vig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

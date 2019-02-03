@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+    app:cardBackgroundColor="#00FF00">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+            android:orientation="vertical"
+        android:padding="8dp">
+
+
+        <TextView
+            android:id="@+id/cvname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Name :"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cvtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:text="type :"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cvprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="type :"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            />
+
+        <TextView
+            android:id="@+id/cvquantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="type :"
+            android:textAlignment="textStart"
+
+           />
+
+        <TextView
+            android:id="@+id/cvseller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="type :"
+            android:textAlignment="textStart"
+
+
+           />
+
+        <ImageButton
+            android:id="@+id/cvcart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
+            />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

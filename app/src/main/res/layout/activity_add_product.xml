@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pankaj.farmguide.AddProduct">
+
+
+    <EditText
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Name"
+
+        android:ems="10"
+        android:inputType="textPersonName"
+
+        android:autofillHints="type"
+
+        />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Price"
+        android:layout_alignStart="@+id/Quantity"
+
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Quantity"
+        android:layout_alignStart="@+id/Quantity"
+
+        android:ems="10"
+        android:inputType="number"
+        android:text="Price" />
+
+    <EditText
+        android:id="@+id/Quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/AddProduct"
+        android:layout_alignStart="@+id/Type"
+        android:layout_marginBottom="73dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Quantity(in kgs)" />
+
+    <Button
+        android:id="@+id/AddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="78dp"
+        android:text="Add product" />
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Quantity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="Show Products" />
+
+</RelativeLayout>
