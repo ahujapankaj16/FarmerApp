@@ -8,14 +8,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -38,6 +41,8 @@ public class ShowProducts extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         CollectionReference productRef = db.collection("product");
         context = getApplicationContext();
+        Bundle bundle = getIntent().getExtras();
+        final String test = bundle.getString("isSeller");
    //     Query query = productRef.orderBy("Price", Query.Direction.DESCENDING);
 
 //        FirestoreRecyclerOptions<Product> options = new FirestoreRecyclerOptions.Builder<Product>()
@@ -50,28 +55,53 @@ public class ShowProducts extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        db.collection("product")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            String s ="";
-                            for (DocumentSnapshot document : task.getResult()) {
-                                Log.d("Result", document.getId() + " => " + document.getData());
-                                Map<String,Object> m = document.getData();
-                              //
-                                Product p = new Product(m.get("Name").toString(),Integer.parseInt(m.get("Price").toString()),Integer.parseInt(m.get("Quantity").toString()),m.get("Seller_id").toString(),m.get("Type").toString());
-                                list.add(p);
-                                adapter.notifyDataSetChanged();
-                             //
-                            }
-                        } else {
-                            Log.d("Result", "Error getting documents: ", task.getException());
+        if (test.equals("yes")) {
+            CollectionReference productref = db.collection("product");
+
+// Create a query against the collection.
+            productref.whereEqualTo("Seller_id", FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Map<String, Object> m = document.getData();
+                            //
+                            Product p = new Product(m.get("Name").toString(), Integer.parseInt(m.get("Price").toString()), Integer.parseInt(m.get("Quantity").toString()), m.get("Seller_id").toString(), m.get("Type").toString());
+                            list.add(p);
+                            adapter.notifyDataSetChanged();
                         }
+                    } else {
+
+                        Toast.makeText(ShowProducts.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                     }
-                });
-}
+                }
+            });
+
+
+        } else {
+            db.collection("product")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                String s = "";
+                                for (DocumentSnapshot document : task.getResult()) {
+                                    Log.d("Result", document.getId() + " => " + document.getData());
+                                    Map<String, Object> m = document.getData();
+                                    //
+                                    Product p = new Product(m.get("Name").toString(), Integer.parseInt(m.get("Price").toString()), Integer.parseInt(m.get("Quantity").toString()), m.get("Seller_id").toString(), m.get("Type").toString());
+                                    list.add(p);
+                                    adapter.notifyDataSetChanged();
+                                    //
+                                }
+                            } else {
+                                Log.d("Result", "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+        }
+    }
 
     @Override
     protected void onStart() {

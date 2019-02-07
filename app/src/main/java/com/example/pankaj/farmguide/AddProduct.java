@@ -94,6 +94,7 @@ public class AddProduct extends AppCompatActivity {
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(AddProduct.this,ShowProducts.class);
+        intent.putExtra("isSeller","yes");
         startActivity(intent);
     }
 });

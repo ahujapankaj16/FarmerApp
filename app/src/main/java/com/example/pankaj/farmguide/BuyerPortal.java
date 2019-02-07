@@ -56,6 +56,7 @@ public class BuyerPortal extends AppCompatActivity {
         public void onClick(View v) {
 
             Intent intent = new Intent(BuyerPortal.this,ShowProducts.class);
+            intent.putExtra("isSeller","No");
             startActivity(intent);
         }
     });
