@@ -2,6 +2,7 @@ package com.example.pankaj.farmguide;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,14 +25,15 @@ import java.util.Map;
 public class AddProduct extends AppCompatActivity {
     EditText Type,Name,Price,Quantity;
      FirebaseFirestore mFirestore,db;
-     Button AddProduct,show;
+     Button show;
+     FloatingActionButton AddProduct;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
         Type = findViewById(R.id.type);
-        Name = findViewById(R.id.Name);
-        Price = findViewById(R.id.Price);
+        Name = findViewById(R.id.name);
+        Price = findViewById(R.id.price);
         Quantity = findViewById(R.id.Quantity);
         AddProduct = findViewById(R.id.AddProduct);
         show = findViewById(R.id.show);

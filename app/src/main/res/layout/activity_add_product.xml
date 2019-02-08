@@ -1,58 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pankaj.farmguide.AddProduct">
+    android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the Product Details"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginLeft="50dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Type"/>
 
     <EditText
         android:id="@+id/type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Name"
-
-        android:ems="10"
-        android:inputType="textPersonName"
-
-        android:autofillHints="type"
-
-        />
+        android:layout_marginLeft="5dp"
+        android:text="Name"/>
 
     <EditText
-        android:id="@+id/Name"
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Price"
-        android:layout_alignStart="@+id/Quantity"
-
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:layout_marginLeft="5dp"
+        android:text="Price"/>
 
     <EditText
-        android:id="@+id/Price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/Quantity"
-        android:layout_alignStart="@+id/Quantity"
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-        android:ems="10"
-        android:inputType="number"
-        android:text="Price" />
+
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_height="wrap_content"
+        android:text="Quantity"/>
 
     <EditText
         android:id="@+id/Quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/AddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/AddProduct"
-        android:layout_alignStart="@+id/Type"
-        android:layout_marginBottom="73dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="Quantity(in kgs)" />
+        android:src="@drawable/upload"
+        android:layout_gravity="center"
+        />
 
+
+
+    <Button
+
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorPrimary"
+        android:text="Show Products"
+        android:textColor="#ffff" />
+
+
+
+</LinearLayout>
+<!--
     <Button
         android:id="@+id/AddProduct"
         android:layout_width="wrap_content"
@@ -70,5 +112,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
         android:text="Show Products" />
+-->
 
-</RelativeLayout>
