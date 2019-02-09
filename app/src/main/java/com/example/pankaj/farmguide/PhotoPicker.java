@@ -144,7 +144,7 @@ public class PhotoPicker extends AppCompatActivity {
                             Log.d("Image_url",uri.toString());
                             String image_url = uri.toString();
 
-                            String URL = "http://famguide.eastus.cloudapp.azure.com:5000/predict";
+                            String URL = "http://farmguide.eastus.cloudapp.azure.com:5000/predict";
                             JSONObject json = new JSONObject();
                             try {
                                 //String image_url = "https://firebasestorage.googleapis.com/v0/b/fir-authui-9c7da.appspot.com/o/crop_photo%2F1b32ba52-1a78-4030-9317-ea5d2ea66cd7___Mary_HL%209232.JPG?alt=media&token=23888b0b-7c5b-48fe-97b7-f3d357203e9e";
