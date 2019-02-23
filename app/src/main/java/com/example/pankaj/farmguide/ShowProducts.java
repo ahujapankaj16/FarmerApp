@@ -90,10 +90,16 @@ public class ShowProducts extends AppCompatActivity {
                                     Log.d("Result", document.getId() + " => " + document.getData());
                                     Map<String, Object> m = document.getData();
                                     //
-                                    Product p = new Product(m.get("Name").toString(), Integer.parseInt(m.get("Price").toString()), Integer.parseInt(m.get("Quantity").toString()), m.get("Seller_id").toString(), m.get("Type").toString());
-                                    list.add(p);
-                                    adapter.notifyDataSetChanged();
-                                    //
+                                    try {
+                                        Product p = new Product(m.get("Name").toString(), Integer.parseInt(m.get("Price").toString()), Integer.parseInt(m.get("Quantity").toString()), m.get("Seller_id").toString(), m.get("Type").toString());
+                                        list.add(p);
+                                        adapter.notifyDataSetChanged();
+                                        //
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Toast.makeText(ShowProducts.this, e.toString(), Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             } else {
                                 Log.d("Result", "Error getting documents: ", task.getException());

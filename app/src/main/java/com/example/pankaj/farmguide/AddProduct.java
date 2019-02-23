@@ -40,6 +40,8 @@ public class AddProduct extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         db = mFirestore;
         Toast.makeText(this, FirebaseAuth.getInstance().getCurrentUser().getUid().toString(), Toast.LENGTH_SHORT).show();
+
+
         AddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +50,12 @@ public class AddProduct extends AppCompatActivity {
                 name = Name.getText().toString();
                 price = Price.getText().toString();
                 quantity = Quantity.getText().toString();
+
+                if(type.equals("")||name.equals("")||price.equals("")||quantity.equals(""))
+                {
+                    Toast.makeText(AddProduct.this, "Enter valid data", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Map<String, Object> data = new HashMap<>();
                 data.put("Type", type);
                 data.put("Name", name);
